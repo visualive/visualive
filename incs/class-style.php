@@ -60,7 +60,7 @@ class VisuAlive_Styles {
 		ob_end_clean();
 
 		wp_register_style( 'visualive', false );
-		wp_add_inline_style( 'visualive', self::simplified_minify_styles( $styles ) );
+		wp_add_inline_style( 'visualive', sprintf( '%s', self::simplified_minify_styles( $styles ) ) );
 		wp_enqueue_style( 'visualive' );
 	}
 
