@@ -96,6 +96,7 @@ class VisuAlive_Styles {
 		$styles = preg_replace( '/:\s/', ':', $styles );
 		$styles = preg_replace( '/,\s/', ',', $styles );
 		$styles = preg_replace( '/\s{/', '{', $styles );
+		$styles = preg_replace( '/\.\/assets/', get_template_directory_uri() . '/assets', $styles );
 
 		return $styles;
 	}

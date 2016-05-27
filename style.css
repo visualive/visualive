@@ -32,11 +32,11 @@ body {
 }
 
 .canopy {
-    background-image: url(https://s3-ap-northeast-1.amazonaws.com/peroli-blog/images/bg-header.jpg);
+    background-image: url(./assets/img/canopy.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 110% auto;
     height:100%;
     margin: 0;
     padding: 0;
@@ -105,7 +105,7 @@ body {
 /* 955px */
 @media screen and (min-width: 59.6875em) {
     .canopy_content {
-        padding: 14% 4%;
+        padding: 18% 4%;
     }
 }
 
@@ -114,8 +114,5 @@ body {
 
 /* 1403px */
 @media screen and (min-width: 87.6875em) {
-    .canopy_content {
-        padding-top: 12%;
-        padding-bottom: 12%;
-    }
+
 }
