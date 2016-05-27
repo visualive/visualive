@@ -66,6 +66,12 @@ body {
     text-shadow: 2px 2px 3px rgba(0,0,0,.3);
 }
 
+.canopy_content .canopy_title,
+.canopy_content .canopy_excerpt {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 .canopy_content .canopy_title {
     font-size: 2.4rem;
     margin: 0;
@@ -75,7 +81,7 @@ body {
 .canopy_content .canopy_excerpt {
     font-size: 1.4rem;
     margin: 0;
-    padding: 3.5em 0 0;
+    padding: 2em 0 0;
     position: relative;
     font-weight: normal;
 }
@@ -83,7 +89,7 @@ body {
 .canopy_content .canopy_excerpt:before {
     background-color: #e4e4e4;
     content: ' ';
-    font-size: 2.4rem;
+    font-size: 1.6rem;
     height: 1px;
     left: 50%;
     margin-left: -60px;

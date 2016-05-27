@@ -36,9 +36,8 @@ get_header();
 			ナビゲーション
 		</div>
 		<div class="canopy_content">
-			<h1 class="canopy_title">画像にブラーフィルターを手軽にかけることができる jQuery プラグイン</h1>
-
-			<h2 class="canopy_excerpt">画像を Photoshop などでワザワザ編集しなくても少しのソースコードを書くだけで、簡単に画像にブラーフィルターをかけることができます。</h2>
+			<h1 class="canopy_title">VisuAlive is WordPress Theme</h1>
+			<h2 class="canopy_excerpt">This theme is currently being developed.<br>Stay tuned!</h2>
 		</div>
 	</div>
 </header>
