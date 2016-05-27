@@ -33,7 +33,7 @@ get_header();
 <header class="canopy">
 	<div class="canopy_inner">
 		<div class="canopy_nav">
-			いえあ
+			ナビゲーション
 		</div>
 		<div class="canopy_content">
 			<h1 class="canopy_title">画像にブラーフィルターを手軽にかけることができる jQuery プラグイン</h1>
