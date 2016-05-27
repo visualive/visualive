@@ -42,9 +42,32 @@ get_header();
 	</div>
 </header>
 
-<p class="webFontTest">WordPress ワードプレス わーどぷれす</p>
-
-<p class="webFontTest2">WordPress ワードプレス わーどぷれす</p>
+<div class="grid-noGutter-equalHeight_sm-1">
+	<div class="col">
+		<section class="panel featured-simple">
+			<div class="panel_inner">
+				<h2 class="panel_title">Simple</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+			</div>
+		</section>
+	</div>
+	<div class="col">
+		<section class="panel featured-secure">
+			<div class="panel_inner">
+				<h2 class="panel_title">Secure</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+			</div>
+		</section>
+	</div>
+	<div class="col">
+		<section class="panel featured-speed">
+			<div class="panel_inner">
+				<h2 class="panel_title">Speed</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+			</div>
+		</section>
+	</div>
+</div>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

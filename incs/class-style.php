@@ -47,6 +47,8 @@ class VisuAlive_Styles {
 	public function enqueue_styles() {
 		$styles = null;
 		$files  = [
+			get_template_directory() . '/assets/css/normalize.min.css',
+			get_template_directory() . '/assets/css/gridlex.min.css',
 			get_template_directory() . '/style.css',
 		];
 

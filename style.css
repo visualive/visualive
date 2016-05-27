@@ -12,16 +12,26 @@ Text Domain: va-test-theme
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
 
 html {
     font-size: 62.5%;
 }
 
 body {
+    color: #222;
     font-family: Lato, 'Noto Sans JP', sans-serif;
     font-style: normal;
     font-size: 16px;
     font-size: 1.6rem;
+    line-height: 1.5;
     margin: 0;
     padding: 0;
     visibility: hidden;
@@ -33,7 +43,7 @@ body {
 
 .canopy {
     background-image: url(./assets/img/canopy.jpg);
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -74,8 +84,10 @@ body {
 
 .canopy_content .canopy_title {
     font-size: 2.4rem;
+    letter-spacing: 4px;
     margin: 0;
     padding: 0;
+    text-transform: uppercase;
 }
 
 .canopy_content .canopy_excerpt {
@@ -98,6 +110,55 @@ body {
     top: 0;
     width: 120px;
 }
+
+.panel {
+    background-attachment: scroll;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    height: 100%;
+    width: 100%;
+}
+
+.panel_inner {
+    height: 100%;
+    left: 0;
+    padding: 60px;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.panel .panel_title {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.featured-simple {
+    background-image: url(./assets/img/simple.jpg);
+}
+
+.featured-simple .panel_inner {
+    background-color: rgba(0,123,179,.8);
+}
+
+.featured-speed {
+    background-image: url(./assets/img/speed.jpg);
+}
+
+.featured-speed .panel_inner {
+    background-color: rgba(219,79,22,.8);
+}
+
+.featured-secure {
+    background-image: url(./assets/img/secure.jpg);
+}
+
+.featured-secure .panel_inner {
+    background-color: rgba(167,200,35,.8);
+}
+
 /* 620px */
 @media screen and (min-width: 38.75em) {
     .canopy_content .canopy_title {
