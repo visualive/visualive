@@ -1,0 +1,121 @@
+/*
+Theme Name: VA Test Theme
+Theme URI:
+Author: KUCKLU
+Author URI: https://www.visualive.jp/
+Description:
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: va-test-theme
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Lato, 'Noto Sans JP', sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+}
+
+.wf-active body {
+    visibility: visible;
+}
+
+.canopy {
+    background-image: url(https://s3-ap-northeast-1.amazonaws.com/peroli-blog/images/bg-header.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.canopy_inner {
+    background-color: rgba(0,0,0,.15);
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+.canopy_content {
+    color: #fff;
+    margin: 0;
+    padding: 16% 8%;
+    position: relative;
+    /*top: 50%;*/
+    /*-webkit-transform: translateY(-50%);*/
+    /*-ms-transform: translateY(-50%);*/
+    /*transform: translateY(-50%);*/
+    text-align: center;
+}
+
+.canopy_content .canopy_title {
+    font-size: 2.4rem;
+    margin: 0;
+    padding: 0;
+}
+
+.canopy_content .canopy_excerpt {
+    font-size: 1.4rem;
+    margin: 0;
+    padding: 3.5em 0 0;
+    position: relative;
+    font-weight: normal;
+}
+
+.canopy_content .canopy_excerpt:before {
+    background-color: #e4e4e4;
+    content: ' ';
+    font-size: 2.4rem;
+    height: 1px;
+    left: 50%;
+    margin-left: -60px;
+    margin-top: 1em;
+    position: absolute;
+    top: 0;
+    width: 120px;
+}
+/* 620px */
+@media screen and (min-width: 38.75em) {
+    .canopy_content .canopy_title {
+        font-size: 3.6rem;
+    }
+
+    .canopy_content .canopy_excerpt {
+        font-size: 1.6rem;
+    }
+}
+/* 740px */
+@media screen and (min-width: 46.25em) {}
+
+/* 955px */
+@media screen and (min-width: 59.6875em) {
+    .canopy_content {
+        padding: 14% 4%;
+    }
+}
+
+/* 1240px */
+@media screen and (min-width: 77.5em) {}
+
+/* 1403px */
+@media screen and (min-width: 87.6875em) {
+    .canopy_content {
+        padding-top: 12%;
+        padding-bottom: 12%;
+    }
+}
