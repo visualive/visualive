@@ -140,7 +140,7 @@ body {
 }
 
 .featured-simple .panel_inner {
-    background-color: rgba(0,123,179,.8);
+    background-color: rgba(50,97,171,.8);
 }
 
 .featured-speed {
@@ -148,7 +148,7 @@ body {
 }
 
 .featured-speed .panel_inner {
-    background-color: rgba(219,79,22,.8);
+    background-color: rgba(191,30,86,.8);
 }
 
 .featured-secure {
@@ -156,7 +156,7 @@ body {
 }
 
 .featured-secure .panel_inner {
-    background-color: rgba(167,200,35,.8);
+    background-color: rgba(0,159,140,.8);
 }
 
 /* 620px */
