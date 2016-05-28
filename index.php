@@ -33,7 +33,7 @@ get_header();
 <header class="canopy">
 	<div class="canopy_inner">
 		<div class="canopy_nav">
-			ナビゲーション
+			
 		</div>
 		<div class="canopy_content">
 			<h1 class="canopy_title">VisuAlive is WordPress Theme</h1>
@@ -42,32 +42,32 @@ get_header();
 	</div>
 </header>
 
-<div class="grid-noGutter-equalHeight_sm-1">
+<section class="grid-noGutter-equalHeight_sm-1">
 	<div class="col">
-		<section class="panel featured-simple">
+		<div class="panel featured-simple">
 			<div class="panel_inner">
 				<h2 class="panel_title">Simple</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
 			</div>
-		</section>
+		</div>
 	</div>
 	<div class="col">
-		<section class="panel featured-secure">
-			<div class="panel_inner">
-				<h2 class="panel_title">Secure</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
-			</div>
-		</section>
-	</div>
-	<div class="col">
-		<section class="panel featured-speed">
+		<div class="panel featured-speed">
 			<div class="panel_inner">
 				<h2 class="panel_title">Speed</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
 			</div>
-		</section>
+		</div>
 	</div>
-</div>
+	<div class="col">
+		<div class="panel featured-secure">
+			<div class="panel_inner">
+				<h2 class="panel_title">Secure</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+			</div>
+		</div>
+	</div>
+</section>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
