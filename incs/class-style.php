@@ -41,8 +41,8 @@ class VisuAlive_Styles {
 	}
 
 	public function __construct() {
-		add_action( 'wp_enqueue_scripts', [ &$this, 'register_styles' ], 10 );
-		add_action( 'wp_enqueue_scripts', [ &$this, 'enqueue_styles' ], 20 );
+		add_action( 'wp_enqueue_scripts', [ &$this, 'register_styles' ], 0 );
+		add_action( 'wp_enqueue_scripts', [ &$this, 'enqueue_styles' ], 1 );
 		add_filter( 'style_loader_tag', [ &$this, 'replace_style_tag' ] );
 	}
 
@@ -79,12 +79,15 @@ class VisuAlive_Styles {
 	 *
 	 * @since VisuAlive 1.0.0
 	 *
-	 * @param string $html
+	 * @param string $tag
 	 *
 	 * @return string
 	 */
-	public function replace_style_tag( $html ) {
-		return preg_replace( '/rel=([\'|"])(.*?)([\'|"])(\s)/i', 'rel=$1$2 prefetch$3$4', $html );
+	public function replace_style_tag( $tag ) {
+		$tag = preg_replace( '/rel=([\'|"])(.*?)([\'|"])(\s)/i', 'rel=$1$2 prefetch$3$4', $tag );
+		$tag = str_replace( home_url(), '', $tag );
+
+		return $tag;
 	}
 
 	/**

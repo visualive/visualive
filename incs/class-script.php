@@ -148,7 +148,6 @@ class VisuAlive_Scripts {
 	 * @return string
 	 */
 	public function replace_script_tag( $tag ) {
-		$tag = preg_replace( '/\stype=([\'|"])text\/javascript([\'|"])\s/i', ' ', $tag );
 		$tag = preg_replace( '/\ssrc=([\'|"])(.*?)([\'|"])>/i', ' src=$1$2$3 async>', $tag );
 		$tag = str_replace( home_url(), '', $tag );
 
