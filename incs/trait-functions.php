@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress template for displaying the footer.
+ * Common features.
  *
  * @package    WordPress
  * @subpackage VisuAlive
@@ -21,6 +21,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-wp_footer(); ?>
-</body>
-</html>
+trait VisuAlive_Trait_Functions {
+	/**
+	 * Files combination.
+	 *
+	 * @since VisuAlive 1.0.0
+	 *
+	 * @param array $files
+	 *
+	 * @return string
+	 */
+	public function files_comb( $files = [ ] ) {
+		$codes = null;
+
+		if ( is_array( $files ) && ! empty( $files ) ) {
+			ob_start();
+			foreach ( $files as $file ) {
+				if ( file_exists( $file ) ) {
+					readfile( $file );
+				}
+			}
+			$codes = ob_get_contents();
+			ob_end_clean();
+		}
+
+		return sprintf( '%s', $codes );
+	}
+}

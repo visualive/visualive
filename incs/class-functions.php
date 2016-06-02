@@ -22,6 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once dirname( dirname( __FILE__ ) ) . '/incs/class-style.php';
+require_once dirname( dirname( __FILE__ ) ) . '/incs/class-script.php';
 
 class VisuAlive_Functions {
 	/**
@@ -63,6 +64,25 @@ class VisuAlive_Functions {
 		 */
 		add_theme_support( 'title-tag' );
 
+		/**
+		 * Enqueues scripts and styles.
+		 */
 		VisuAlive_Styles::init();
+		VisuAlive_Scripts::init();
 	}
 }
+
+function print_scripts_array( $to_do ) {
+	global $wp_scripts;
+	$scripts = [];
+
+	foreach ( $to_do as $key => $handle ) {
+		$deps = $wp_scripts->registered[$handle]->deps;
+		if ( false !== array_search( 'jquery', $deps, true ) ) {
+			$scripts[] = $wp_scripts->registered[$handle];
+		}
+	}
+
+	return $scripts;
+}
+//add_filter( 'print_scripts_array', 'test_print_scripts_array' );

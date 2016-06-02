@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once dirname( __FILE__ ) . '/incs/trait-functions.php';
 require_once dirname( __FILE__ ) . '/incs/class-functions.php';
 
 add_action( 'after_setup_theme', [ 'VisuAlive_Functions', 'init' ], 999 );

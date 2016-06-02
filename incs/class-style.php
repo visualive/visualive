@@ -22,11 +22,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class VisuAlive_Styles {
+	use VisuAlive_Trait_Functions;
+
 	/**
 	 * Get instance.
 	 *
 	 * @since VisuAlive 1.0.0
-	 *
 	 * @return VisuAlive_Styles
 	 */
 	public static function init() {
@@ -40,29 +41,46 @@ class VisuAlive_Styles {
 	}
 
 	public function __construct() {
-		add_action( 'wp_enqueue_scripts', [ &$this, 'enqueue_styles', ], -1 );
+		add_action( 'wp_head', [ &$this, 'enqueue_styles' ] );
+		add_action( 'wp_enqueue_scripts', [ &$this, 'register_styles' ], 999999999 );
+		add_action( 'wp_enqueue_scripts', [ &$this, 'add_styles' ], 9999999999 );
 		add_filter( 'style_loader_tag', [ &$this, 'replace_style_tag' ] );
 	}
 
-	public function enqueue_styles() {
+	/**
+	 * Register styles.
+	 *
+	 * @since VisuAlive 1.0.0
+	 */
+	public function register_styles() {
+		wp_register_style( 'visualive', false );
+	}
+
+	/**
+	 * Add styles.
+	 *
+	 * @since VisuAlive 1.0.0
+	 */
+	public function add_styles() {
 		$styles = null;
 		$files  = [
 			get_template_directory() . '/assets/css/normalize.min.css',
 			get_template_directory() . '/assets/css/gridlex.min.css',
 			get_template_directory() . '/style.css',
 		];
-
-		ob_start();
-		foreach ( $files as $file ) {
-			if ( file_exists( $file ) ) {
-				readfile( $file );
-			}
-		}
-		$styles = ob_get_contents();
-		ob_end_clean();
+		$styles = self::files_comb( $files );
+		$styles = self::simplified_minify_styles( $styles );
 
 		wp_register_style( 'visualive', false );
-		wp_add_inline_style( 'visualive', sprintf( '%s', self::simplified_minify_styles( $styles ) ) );
+		wp_add_inline_style( 'visualive', $styles );
+	}
+
+	/**
+	 * Enqueue styles.
+	 *
+	 * @since VisuAlive 1.0.0
+	 */
+	public function enqueue_styles() {
 		wp_enqueue_style( 'visualive' );
 	}
 
@@ -100,6 +118,6 @@ class VisuAlive_Styles {
 		$styles = preg_replace( '/\s{/', '{', $styles );
 		$styles = preg_replace( '/\.\/assets/', get_template_directory_uri() . '/assets', $styles );
 
-		return $styles;
+		return sprintf( '%s', $styles );
 	}
 }
