@@ -41,9 +41,8 @@ class VisuAlive_Styles {
 	}
 
 	public function __construct() {
-		add_action( 'wp_head', [ &$this, 'enqueue_styles' ] );
-		add_action( 'wp_enqueue_scripts', [ &$this, 'register_styles' ], 999999999 );
-		add_action( 'wp_enqueue_scripts', [ &$this, 'add_styles' ], 9999999999 );
+		add_action( 'wp_enqueue_scripts', [ &$this, 'register_styles' ], 10 );
+		add_action( 'wp_enqueue_scripts', [ &$this, 'enqueue_styles' ], 20 );
 		add_filter( 'style_loader_tag', [ &$this, 'replace_style_tag' ] );
 	}
 
@@ -57,11 +56,11 @@ class VisuAlive_Styles {
 	}
 
 	/**
-	 * Add styles.
+	 * Enqueue styles.
 	 *
 	 * @since VisuAlive 1.0.0
 	 */
-	public function add_styles() {
+	public function enqueue_styles() {
 		$styles = null;
 		$files  = [
 			get_template_directory() . '/assets/css/normalize.min.css',
@@ -71,16 +70,7 @@ class VisuAlive_Styles {
 		$styles = self::files_comb( $files );
 		$styles = self::simplified_minify_styles( $styles );
 
-		wp_register_style( 'visualive', false );
 		wp_add_inline_style( 'visualive', $styles );
-	}
-
-	/**
-	 * Enqueue styles.
-	 *
-	 * @since VisuAlive 1.0.0
-	 */
-	public function enqueue_styles() {
 		wp_enqueue_style( 'visualive' );
 	}
 

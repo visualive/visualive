@@ -48,9 +48,9 @@ class VisuAlive_Scripts {
 	}
 
 	public function __construct() {
-		add_action( 'wp_head', [ &$this, 'enqueue_scripts' ] );
-		add_action( 'wp_enqueue_scripts', [ &$this, 'register_scripts' ], 999999999 );
-		add_action( 'wp_enqueue_scripts', [ &$this, 'add_scripts' ], 9999999999 );
+		add_action( 'wp_enqueue_scripts', [ &$this, 'register_scripts' ], 10 );
+		add_action( 'wp_enqueue_scripts', [ &$this, 'enqueue_scripts' ], 20 );
+		add_filter( 'script_loader_tag', [ &$this, 'replace_script_tag' ] );
 	}
 
 	/**
@@ -64,16 +64,17 @@ class VisuAlive_Scripts {
 		$wp_scripts->remove( 'jquery' );
 		$wp_scripts->remove( 'jquery-core' );
 		$wp_scripts->remove( 'jquery-migrate' );
+
 		wp_register_script( 'jquery', false, [ 'jquery-core' ], false, true );
 		wp_register_script( 'jquery-core', get_template_directory_uri() . '/assets/js/apps.js', [ ], false, true );
 	}
 
 	/**
-	 * Add scripts.
+	 * Enqueue scripts.
 	 *
 	 * @since VisuAlive 1.0.0
 	 */
-	public function add_scripts() {
+	public function enqueue_scripts() {
 		$incs_dir  = '/' . WPINC;
 		$theme_dir = preg_replace( '/^https?:\/\/[^\/]+/i', '', get_template_directory_uri() );
 		$l10n      = [
@@ -90,14 +91,6 @@ class VisuAlive_Scripts {
 
 		wp_add_inline_script( 'jquery-core', $scripts, 'before' );
 		wp_localize_script( 'jquery-core', 'VISUALIVE', $l10n );
-	}
-
-	/**
-	 * Enqueues scripts.
-	 *
-	 * @since VisuAlive 1.0.0
-	 */
-	public function enqueue_scripts() {
 		wp_enqueue_script( 'jquery' );
 	}
 
@@ -118,7 +111,6 @@ class VisuAlive_Scripts {
 
 				if ( false !== array_search( 'jquery', $deps, true ) ) {
 					$scripts[] = preg_replace( '/^https?:\/\/[^\/]+/i', '', $wp_scripts->registered[ $handle ]->src );
-
 					if ( isset( $wp_scripts->registered[ $handle ]->extra ) && ! empty( $wp_scripts->registered[ $handle ]->extra ) ) {
 						foreach ( $wp_scripts->registered[ $handle ]->extra as $ex_key => $ex_value ) {
 							switch ( $ex_key ) {
@@ -142,6 +134,25 @@ class VisuAlive_Scripts {
 		}
 
 		return $scripts;
+	}
+
+	/**
+	 * Filter the HTML script tag of an enqueued script.
+	 *
+	 * @since VisuAlive 1.0.0
+	 *
+	 * @param string $tag    The `<script>` tag for the enqueued script.
+	 * @param string $handle The script's registered handle.
+	 * @param string $src    The script's source URL.
+	 *
+	 * @return string
+	 */
+	public function replace_script_tag( $tag ) {
+		$tag = preg_replace( '/\stype=([\'|"])text\/javascript([\'|"])\s/i', ' ', $tag );
+		$tag = preg_replace( '/\ssrc=([\'|"])(.*?)([\'|"])>/i', ' src=$1$2$3 async>', $tag );
+		$tag = str_replace( home_url(), '', $tag );
+
+		return $tag;
 	}
 
 	/**
