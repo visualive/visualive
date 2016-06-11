@@ -5,7 +5,7 @@
  * @package    WordPress
  * @subpackage VisuAlive
  * @author     KUCKLU <kuck1u@visualive.jp>
- *             Copyright (C) 2015  KUCKLU and VisuAlive.
+ *             Copyright (C) 2015 KUCKLU and VisuAlive.
  *             This program is free software: you can redistribute it and/or modify
  *             it under the terms of the GNU General Public License as published by
  *             the Free Software Foundation, either version 3 of the License, or
@@ -41,13 +41,13 @@ class VisuAlive_Scripts {
 		static $instance = false;
 
 		if ( ! $instance ) {
-			$instance = new VisuAlive_Scripts;
+			$instance = new self;
 		}
 
 		return $instance;
 	}
 
-	public function __construct() {
+	private function __construct() {
 		add_action( 'wp_enqueue_scripts', [ &$this, 'register_scripts' ], 10 );
 		add_action( 'wp_enqueue_scripts', [ &$this, 'enqueue_scripts' ], 20 );
 		add_filter( 'script_loader_tag', [ &$this, 'replace_script_tag' ] );
@@ -75,10 +75,8 @@ class VisuAlive_Scripts {
 	 * @since VisuAlive 1.0.0
 	 */
 	public function enqueue_scripts() {
-		$incs_dir  = '/' . WPINC;
-		$theme_dir = preg_replace( '/^https?:\/\/[^\/]+/i', '', get_template_directory_uri() );
+		$theme_dir = self::remove_domain( get_template_directory_uri() );
 		$l10n      = [
-			'incs_dir'   => $incs_dir,
 			'theme_dir'  => $theme_dir,
 			'assets_dir' => $theme_dir . '/assets',
 			'queue'      => self::jquery_dependent_scripts(),
@@ -110,7 +108,7 @@ class VisuAlive_Scripts {
 				$deps = $wp_scripts->registered[ $handle ]->deps;
 
 				if ( false !== array_search( 'jquery', $deps, true ) ) {
-					$scripts[] = preg_replace( '/^https?:\/\/[^\/]+/i', '', $wp_scripts->registered[ $handle ]->src );
+					$scripts[] = self::remove_domain( $wp_scripts->registered[ $handle ]->src );
 					if ( isset( $wp_scripts->registered[ $handle ]->extra ) && ! empty( $wp_scripts->registered[ $handle ]->extra ) ) {
 						foreach ( $wp_scripts->registered[ $handle ]->extra as $ex_key => $ex_value ) {
 							switch ( $ex_key ) {
@@ -142,9 +140,6 @@ class VisuAlive_Scripts {
 	 * @since VisuAlive 1.0.0
 	 *
 	 * @param string $tag    The `<script>` tag for the enqueued script.
-	 * @param string $handle The script's registered handle.
-	 * @param string $src    The script's source URL.
-	 *
 	 * @return string
 	 */
 	public function replace_script_tag( $tag ) {

@@ -30,43 +30,49 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<header class="canopy">
-	<div class="canopy-inner">
-		<div class="canopy-nav">
+<div class="loader">
+	<div class="loader_body">Loading...</div>
+</div>
 
-		</div>
-		<div class="canopy-content">
-			<h1 class="canopy-title">VisuAlive is WordPress Theme</h1>
-			<h2 class="canopy-excerpt">This theme is currently being developed.<br>Stay tuned!</h2>
-		</div>
-	</div>
-</header>
+<div class="body">
+	<header class="canopy">
+		<div class="canopy-inner">
+			<div class="canopy-nav">
 
-<section class="grid-noGutter-equalHeight_sm-1">
-	<div class="col">
-		<div class="panel featured--simple">
-			<div class="panel-inner">
-				<h2 class="panel-title">Simple</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+			</div>
+			<div class="canopy-content">
+				<h1 class="canopy-title">VisuAlive is WordPress Theme</h1>
+				<h2 class="canopy-excerpt">This theme is currently being developed.<br>Stay tuned!</h2>
 			</div>
 		</div>
-	</div>
-	<div class="col">
-		<div class="panel featured--speed">
-			<div class="panel-inner">
-				<h2 class="panel-title">Speed</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+	</header>
+
+	<section class="grid-noGutter-equalHeight_sm-1">
+		<div class="col">
+			<div class="panel featured--simple">
+				<div class="panel-inner">
+					<h2 class="panel-title">Simple</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="col">
-		<div class="panel featured--secure">
-			<div class="panel-inner">
-				<h2 class="panel-title">Secure</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+		<div class="col">
+			<div class="panel featured--speed">
+				<div class="panel-inner">
+					<h2 class="panel-title">Speed</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+		<div class="col">
+			<div class="panel featured--secure">
+				<div class="panel-inner">
+					<h2 class="panel-title">Secure</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
 
 <?php get_footer(); ?>

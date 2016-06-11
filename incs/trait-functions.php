@@ -5,7 +5,7 @@
  * @package    WordPress
  * @subpackage VisuAlive
  * @author     KUCKLU <kuck1u@visualive.jp>
- *             Copyright (C) 2015  KUCKLU and VisuAlive.
+ *             Copyright (C) 2015 KUCKLU and VisuAlive.
  *             This program is free software: you can redistribute it and/or modify
  *             it under the terms of the GNU General Public License as published by
  *             the Free Software Foundation, either version 3 of the License, or
@@ -46,5 +46,35 @@ trait VisuAlive_Trait_Functions {
 		}
 
 		return sprintf( '%s', $codes );
+	}
+
+	/**
+	 * Remove domain.
+	 *
+	 * @since VisuAlive 1.0.0
+	 *
+	 * @param string $url
+	 *
+	 * @return string
+	 */
+	public function remove_domain( $url = '' ) {
+		if ( true === self::is_url( $url ) ) {
+			$url = preg_replace( '/^https?:\/\/[^\/]+/i', '', $url );
+		}
+
+		return sprintf( '%s', $url );
+	}
+
+	/**
+	 * Is url.
+	 *
+	 * @since VisuAlive 1.0.0
+	 *
+	 * @param string $url
+	 *
+	 * @return bool
+	 */
+	public function is_url( $url = '' ) {
+		return (bool) preg_match( '/^https?:\/\/[-_.!~*\"()a-zA-Z0-9;\/?:\@&=+\$,%#]+$/i', $url );
 	}
 }

@@ -24,7 +24,7 @@ $script = window.$script;
 
 $script([
     VISUALIVE.assets_dir + '/js/vendor/webfontloader.min.js',
-    VISUALIVE.incs_dir + '/js/jquery/jquery.js'
+    VISUALIVE.assets_dir + '/js/vendor/jquery-3.0.0.min.js'
 ], 'bundle');
 
 $script.ready('bundle', function () {
@@ -54,10 +54,10 @@ $script.ready('bundle', function () {
     // jQuery dependent scripts.
     $script(VISUALIVE.assets_dir + '/js/vendor/jquery-selector-cache.js', 'jquery-selector-cache');
     $script.ready('jquery-selector-cache', function () {
+        $script(VISUALIVE.theme_dir + '/assets/js/script.js');
+
         for (var i = 0; i < VISUALIVE.queue.length; i++) {
             $script(VISUALIVE.queue[i]);
         }
-
-        $script(VISUALIVE.theme_dir + '/assets/js/script.js');
     });
 });

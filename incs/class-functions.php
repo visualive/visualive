@@ -5,7 +5,7 @@
  * @package    WordPress
  * @subpackage VisuAlive
  * @author     KUCKLU <kuck1u@visualive.jp>
- *             Copyright (C) 2015  KUCKLU and VisuAlive.
+ *             Copyright (C) 2015 KUCKLU and VisuAlive.
  *             This program is free software: you can redistribute it and/or modify
  *             it under the terms of the GNU General Public License as published by
  *             the Free Software Foundation, either version 3 of the License, or
@@ -71,18 +71,3 @@ class VisuAlive_Functions {
 		VisuAlive_Scripts::init();
 	}
 }
-
-function print_scripts_array( $to_do ) {
-	global $wp_scripts;
-	$scripts = [];
-
-	foreach ( $to_do as $key => $handle ) {
-		$deps = $wp_scripts->registered[$handle]->deps;
-		if ( false !== array_search( 'jquery', $deps, true ) ) {
-			$scripts[] = $wp_scripts->registered[$handle];
-		}
-	}
-
-	return $scripts;
-}
-//add_filter( 'print_scripts_array', 'test_print_scripts_array' );

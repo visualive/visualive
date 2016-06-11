@@ -21,6 +21,12 @@ Use it to make something cool, have fun, and share what you've learned with othe
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -34,11 +40,80 @@ body {
     line-height: 1.5;
     margin: 0;
     padding: 0;
-    visibility: hidden;
 }
 
+html.wf-active,
 .wf-active body {
-    visibility: visible;
+    height: auto;
+    overflow: auto;
+}
+
+.loader {
+    font-size: 10px;
+    opacity: 1;
+    position: relative;
+    top: 50%;
+    transition: opacity 0.3s;
+    transform: translateY(-50%);
+}
+
+.loader_body,
+.loader_body:before,
+.loader_body:after {
+    border-radius: 50%;
+}
+
+.loader_body:before,
+.loader_body:after {
+    position: absolute;
+    content: '';
+}
+
+.loader_body:before {
+    animation: loader 2s infinite ease 1.5s;
+    background: #ffffff;
+    border-radius: 10.2em 0 0 10.2em;
+    height: 10.2em;
+    left: -0.1em;
+    top: -0.1em;
+    transform-origin: 5.2em 5.1em;
+    width: 5.2em;
+}
+
+.loader_body {
+    box-shadow: inset 0 0 0 1em;
+    color: #222222;
+    margin: 0 auto;
+    height: 10em;
+    position: relative;
+    text-indent: -99999em;
+    transform: translateZ(0);
+    width: 10em;
+}
+
+.loader_body:after {
+    animation: loader 2s infinite ease;
+    background: #ffffff;
+    border-radius: 0 10.2em 10.2em 0;
+    height: 10.2em;
+    left: 5.1em;
+    top: -0.1em;
+    transform-origin: 0px 5.1em;
+    width: 5.2em;
+}
+
+.wf-active .loader {
+    display: none;
+    opacity: 0;
+}
+
+.body {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.wf-active .body {
+    opacity: 1;
 }
 
 .canopy {
@@ -185,3 +260,13 @@ body {
 
 /* 1403px */
 @media screen and (min-width: 87.6875em) {}
+
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
