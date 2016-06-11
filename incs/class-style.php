@@ -63,9 +63,10 @@ class VisuAlive_Styles {
 	public function enqueue_styles() {
 		$styles = null;
 		$files  = [
-			get_template_directory() . '/assets/css/normalize.min.css',
-			get_template_directory() . '/assets/css/gridlex.min.css',
-			get_template_directory() . '/style.css',
+			get_template_directory() . '/assets/css/vendor/normalize.min.css',
+			get_template_directory() . '/assets/css/vendor/aos.min.css',
+			get_template_directory() . '/assets/css/vendor/gridlex.min.css',
+			get_template_directory() . '/assets/css/style.min.css',
 		];
 		$styles = self::files_comb( $files );
 		$styles = self::simplified_minify_styles( $styles );

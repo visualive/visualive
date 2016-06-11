@@ -23,6 +23,7 @@
 $script = window.$script;
 
 $script([
+    VISUALIVE.assets_dir + '/js/vendor/aos.min.js',
     VISUALIVE.assets_dir + '/js/vendor/webfontloader.min.js',
     VISUALIVE.assets_dir + '/js/vendor/jquery-3.0.0.min.js'
 ], 'bundle');
@@ -51,8 +52,17 @@ $script.ready('bundle', function () {
         WebFont.load(WebFontConfig);
     }
 
-    // jQuery dependent scripts.
+    // AOS - Animate on scroll library.
+    AOS.init({
+        easing: 'ease',
+        duration: 1000
+        //once: true
+    });
+
+    // Load library - jQuery Selector Cache.
     $script(VISUALIVE.assets_dir + '/js/vendor/jquery-selector-cache.js', 'jquery-selector-cache');
+
+    // jQuery dependent scripts.
     $script.ready('jquery-selector-cache', function () {
         $script(VISUALIVE.theme_dir + '/assets/js/script.js');
 
