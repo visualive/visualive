@@ -75,17 +75,13 @@ class VisuAlive_Scripts {
 	 * @since VisuAlive 1.0.0
 	 */
 	public function enqueue_scripts() {
-		$theme_dir = self::remove_domain( get_template_directory_uri() );
-		$l10n      = [
-			'theme_dir'  => $theme_dir,
-			'assets_dir' => $theme_dir . '/assets',
-			'queue'      => self::jquery_dependent_scripts(),
-		];
-		$files     = [
+		$l10n          = self::theme_path();
+		$l10n['queue'] = self::jquery_dependent_scripts();
+		$files         = apply_filters( 'visualive_inline_scripts', [
 			get_template_directory() . '/assets/js/vendor/script.min.js',
-		];
-		$scripts   = self::files_comb( $files );
-		$scripts   = self::simplified_minify_scripts( $scripts );
+		] );
+		$scripts       = self::files_comb( $files );
+		$scripts       = self::simplified_minify_scripts( $scripts );
 
 		wp_add_inline_script( 'jquery-core', $scripts, 'before' );
 		wp_localize_script( 'jquery-core', 'VISUALIVE', $l10n );
@@ -139,7 +135,8 @@ class VisuAlive_Scripts {
 	 *
 	 * @since VisuAlive 1.0.0
 	 *
-	 * @param string $tag    The `<script>` tag for the enqueued script.
+	 * @param string $tag The `<script>` tag for the enqueued script.
+	 *
 	 * @return string
 	 */
 	public function replace_script_tag( $tag ) {

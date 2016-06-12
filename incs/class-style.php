@@ -62,12 +62,12 @@ class VisuAlive_Styles {
 	 */
 	public function enqueue_styles() {
 		$styles = null;
-		$files  = [
+		$files  = apply_filters( 'visualive_inline_styles', [
 			get_template_directory() . '/assets/css/vendor/normalize.min.css',
 			get_template_directory() . '/assets/css/vendor/aos.min.css',
 			get_template_directory() . '/assets/css/vendor/gridlex.min.css',
-			get_template_directory() . '/assets/css/style.min.css',
-		];
+			get_template_directory() . '/assets/css/style.css',
+		] );
 		$styles = self::files_comb( $files );
 		$styles = self::simplified_minify_styles( $styles );
 
@@ -110,7 +110,7 @@ class VisuAlive_Styles {
 		$styles = preg_replace( '/:\s/', ':', $styles );
 		$styles = preg_replace( '/,\s/', ',', $styles );
 		$styles = preg_replace( '/\s{/', '{', $styles );
-		$styles = preg_replace( '/\.\/assets/', self::remove_domain( get_template_directory_uri() ) . '/assets', $styles );
+		$styles = preg_replace( '/\.\.\/\.\.\/assets/', self::remove_domain( get_template_directory_uri() ) . '/assets', $styles );
 
 		return sprintf( '%s', $styles );
 	}

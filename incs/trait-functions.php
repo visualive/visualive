@@ -23,6 +23,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 trait VisuAlive_Trait_Functions {
 	/**
+	 * Theme path.
+	 *
+	 * @since VisuAlive 1.0.0
+	 * @return array
+	 */
+	public static function theme_path() {
+		$theme_dir  = self::remove_domain( get_template_directory_uri() );
+		$assets_dir = $theme_dir . '/assets';
+
+		return apply_filters( 'visualive_theme_path', [
+			'theme_dir'  => $theme_dir,
+			'assets_dir' => $assets_dir,
+		] );
+	}
+
+	/**
 	 * Files combination.
 	 *
 	 * @since VisuAlive 1.0.0
@@ -31,7 +47,7 @@ trait VisuAlive_Trait_Functions {
 	 *
 	 * @return string
 	 */
-	public function files_comb( $files = [ ] ) {
+	public static function files_comb( $files = [ ] ) {
 		$codes = null;
 
 		if ( is_array( $files ) && ! empty( $files ) ) {
@@ -57,7 +73,7 @@ trait VisuAlive_Trait_Functions {
 	 *
 	 * @return string
 	 */
-	public function remove_domain( $url = '' ) {
+	public static function remove_domain( $url = '' ) {
 		if ( true === self::is_url( $url ) ) {
 			$url = preg_replace( '/^https?:\/\/[^\/]+/i', '', $url );
 		}
@@ -74,7 +90,7 @@ trait VisuAlive_Trait_Functions {
 	 *
 	 * @return bool
 	 */
-	public function is_url( $url = '' ) {
+	public static function is_url( $url = '' ) {
 		return (bool) preg_match( '/^https?:\/\/[-_.!~*\"()a-zA-Z0-9;\/?:\@&=+\$,%#]+$/i', $url );
 	}
 }

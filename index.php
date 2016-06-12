@@ -30,10 +30,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<!--<div class="loader">-->
-<!--	<div class="loader_body">Loading...</div>-->
-<!--</div>-->
-
 <div class="body">
 	<header class="canopy">
 		<div class="canopy-inner">
@@ -42,7 +38,7 @@ get_header();
 			</div>
 			<div class="canopy-content">
 				<div class="canopy-title">
-					<h1 aos="fade-down" aos-offset="0" aos-delay="400">VisuAlive is WordPress Theme</h1>
+					<div aos="fade-down" aos-offset="0" aos-delay="400"><h1>VisuAlive is WordPress Theme</h1></div>
 				</div>
 				<div class="canopy-excerpt">
 					<h2 aos="fade-up" aos-offset="0" aos-delay="800">This theme is currently being developed.<br>Stay tuned!</h2>

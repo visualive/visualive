@@ -9,8 +9,8 @@
 
 html,
 body {
-    height: 100%;
-    overflow: hidden;
+    /*height: 100%;*/
+    /*overflow: hidden;*/
 }
 
 html {
@@ -19,7 +19,7 @@ html {
 
 body {
     color: #222;
-    font-family: Lato, 'Noto Sans JP', sans-serif;
+    font-family: Lato, 'Noto Sans JP', Verdana, Roboto, 'Droid Sans', '游ゴシック', YuGothic, 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, fantasy, sans-serif;
     font-style: normal;
     font-size: 16px;
     font-size: 1.6rem;
@@ -30,19 +30,20 @@ body {
 
 html.wf-active,
 .wf-active body {
-    height: auto;
-    overflow: auto;
+    /*height: auto;*/
+    /*overflow: auto;*/
 }
 
 .loader {
     font-size: 10px;
+    left: 50%;
     opacity: 1;
-    position: relative;
+    position: absolute;
     top: 50%;
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
 }
 
 .loader_body,
@@ -101,13 +102,15 @@ html.wf-active,
 }
 
 .body {
+    /*display: none;*/
     /*opacity: 0;*/
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
 }
 
 .wf-active .body {
-    opacity: 1;
+    /*display: block;*/
+    /*opacity: 1;*/
 }
 
 .button {
@@ -165,7 +168,7 @@ html.wf-active,
 }
 
 .canopy {
-    background-image: url(./assets/img/canopy.jpg);
+    background-image: url(../../assets/img/canopy.jpg);
     background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
@@ -267,7 +270,7 @@ html.wf-active,
 }
 
 .featured--simple {
-    background-image: url(./assets/img/simple.jpg);
+    background-image: url(../../assets/img/simple.jpg);
 }
 
 .featured--simple .panel-inner {
@@ -275,7 +278,7 @@ html.wf-active,
 }
 
 .featured--speed {
-    background-image: url(./assets/img/speed.jpg);
+    background-image: url(../../assets/img/speed.jpg);
 }
 
 .featured--speed .panel-inner {
@@ -283,7 +286,7 @@ html.wf-active,
 }
 
 .featured--secure {
-    background-image: url(./assets/img/secure.jpg);
+    background-image: url(../../assets/img/secure.jpg);
 }
 
 .featured--secure .panel-inner {

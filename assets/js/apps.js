@@ -22,17 +22,29 @@
  */
 $script = window.$script;
 
+$script.path(VISUALIVE.assets_dir);
+
 $script([
-    VISUALIVE.assets_dir + '/js/vendor/aos.min.js',
-    VISUALIVE.assets_dir + '/js/vendor/webfontloader.min.js',
-    VISUALIVE.assets_dir + '/js/vendor/jquery-3.0.0.min.js'
+    '/js/vendor/aos.min.js',
+    '/js/vendor/webfontloader.min.js',
+    '/js/vendor/jquery-3.0.0.min.js'
 ], 'bundle');
 
 $script.ready('bundle', function () {
+    // Load library - jQuery Selector Cache.
+    $script('/js/vendor/jquery-selector-cache.js', 'jquery-selector-cache');
+
     // Ajax Cache
     jQuery.ajaxSetup({
         cache: true,
         async: true
+    });
+
+    // AOS - Animate on scroll library.
+    AOS.init({
+        easing: 'ease',
+        duration: 1000
+        //once: true
     });
 
     // Google Fonts
@@ -52,19 +64,9 @@ $script.ready('bundle', function () {
         WebFont.load(WebFontConfig);
     }
 
-    // AOS - Animate on scroll library.
-    AOS.init({
-        easing: 'ease',
-        duration: 1000
-        //once: true
-    });
-
-    // Load library - jQuery Selector Cache.
-    $script(VISUALIVE.assets_dir + '/js/vendor/jquery-selector-cache.js', 'jquery-selector-cache');
-
     // jQuery dependent scripts.
     $script.ready('jquery-selector-cache', function () {
-        $script(VISUALIVE.theme_dir + '/assets/js/script.js');
+        $script('/js/script.js');
 
         for (var i = 0; i < VISUALIVE.queue.length; i++) {
             $script(VISUALIVE.queue[i]);

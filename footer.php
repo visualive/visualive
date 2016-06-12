@@ -19,8 +19,12 @@
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-}
+} ?>
 
-wp_footer(); ?>
+<!--<div class="loader">-->
+<!--	<div class="loader_body">Loading...</div>-->
+<!--</div>-->
+
+<?php wp_footer(); ?>
 </body>
 </html>
