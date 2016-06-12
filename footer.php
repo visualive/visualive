@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } ?>
 
+<!-- //.container --></div>
 <!--<div class="loader">-->
 <!--	<div class="loader_body">Loading...</div>-->
 <!--</div>-->

@@ -55,7 +55,7 @@ $script.ready('bundle', function () {
         custom: {
             families: ['Noto Sans JP'],
             urls    : [
-                VISUALIVE.theme_dir + '/webfont.css'
+                VISUALIVE.assets_dir + '/css/webfont.min.css'
             ]
         }
     };

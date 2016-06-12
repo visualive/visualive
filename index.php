@@ -30,78 +30,76 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<div class="body">
-	<header class="canopy">
-		<div class="canopy-inner">
-			<div class="canopy-nav">
+<header class="canopy">
+	<div class="canopy-inner">
+		<div class="canopy-nav">
 
+		</div>
+		<div class="canopy-content">
+			<div class="canopy-title">
+				<div aos="fade-down" aos-offset="0" aos-delay="400"><h1>VisuAlive is WordPress Theme</h1></div>
 			</div>
-			<div class="canopy-content">
-				<div class="canopy-title">
-					<div aos="fade-down" aos-offset="0" aos-delay="400"><h1>VisuAlive is WordPress Theme</h1></div>
-				</div>
-				<div class="canopy-excerpt">
-					<h2 aos="fade-up" aos-offset="0" aos-delay="800">This theme is currently being developed.<br>Stay tuned!</h2>
-				</div>
+			<div class="canopy-excerpt">
+				<h2 aos="fade-up" aos-offset="0" aos-delay="800">This theme is currently being developed.<br>Stay tuned!</h2>
 			</div>
 		</div>
-	</header>
-
-	<section class="grid-noGutter-equalHeight_sm-1">
-		<div class="col">
-			<div class="panel featured--simple">
-				<div class="panel-inner">
-					<h2 class="panel-title" aos="fade-in" aos-delay="100">Simple</h2>
-					<p aos="fade-in" aos-delay="300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
-					<p aos="fade-up" aos-delay="100"><a href="#" class="button">Read more</a></p>
-				</div>
-			</div>
-		</div>
-		<div class="col">
-			<div class="panel featured--speed">
-				<div class="panel-inner">
-					<h2 class="panel-title" aos="fade-in" aos-delay="100">Speed</h2>
-					<p aos="fade-in" aos-delay="300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
-					<p aos="fade-up" aos-delay="100"><a href="#" class="button">Read more</a></p>
-				</div>
-			</div>
-		</div>
-		<div class="col">
-			<div class="panel featured--secure">
-				<div class="panel-inner">
-					<h2 class="panel-title" aos="fade-in" aos-delay="100">Secure</h2>
-					<p aos="fade-in" aos-delay="300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
-					<p aos="fade-up" aos-delay="100"><a href="#" class="button">Read more</a></p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<div>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
 	</div>
+</header>
 
-	<div>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-		<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<section class="grid-noGutter-equalHeight_sm-1">
+	<div class="col">
+		<div class="panel featured--simple">
+			<div class="panel-inner">
+				<h2 class="panel-title" aos="fade-in" aos-delay="100">Simple</h2>
+				<p aos="fade-in" aos-delay="300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+				<p aos="fade-up" aos-delay="100"><a href="#" class="button">Read more</a></p>
+			</div>
+		</div>
 	</div>
+	<div class="col">
+		<div class="panel featured--speed">
+			<div class="panel-inner">
+				<h2 class="panel-title" aos="fade-in" aos-delay="100">Speed</h2>
+				<p aos="fade-in" aos-delay="300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+				<p aos="fade-up" aos-delay="100"><a href="#" class="button">Read more</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="panel featured--secure">
+			<div class="panel-inner">
+				<h2 class="panel-title" aos="fade-in" aos-delay="100">Secure</h2>
+				<p aos="fade-in" aos-delay="300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed quam vitae mauris varius ultricies hendrerit id purus. Praesent luctus cursus augue at pretium. Nam metus.</p>
+				<p aos="fade-up" aos-delay="100"><a href="#" class="button">Read more</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+</div>
+
+<div>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
 </div>
 
 <?php get_footer(); ?>
