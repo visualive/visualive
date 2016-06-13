@@ -66,7 +66,7 @@ class VisuAlive_Scripts {
 		$wp_scripts->remove( 'jquery-migrate' );
 
 		wp_register_script( 'jquery', false, [ 'jquery-core' ], false, true );
-		wp_register_script( 'jquery-core', get_template_directory_uri() . '/assets/js/apps.js', [ ], false, true );
+		wp_register_script( 'jquery-core', get_template_directory_uri() . '/assets/js/apps.min.js', [ ], false, true );
 	}
 
 	/**
@@ -77,9 +77,7 @@ class VisuAlive_Scripts {
 	public function enqueue_scripts() {
 		$l10n          = self::theme_path();
 		$l10n['queue'] = self::jquery_dependent_scripts();
-		$files         = apply_filters( 'visualive_inline_scripts', [
-			get_template_directory() . '/assets/js/vendor/script.min.js',
-		] );
+		$files         = apply_filters( 'visualive_inline_scripts', [ ] );
 		$scripts       = self::files_comb( $files );
 		$scripts       = self::simplified_minify_scripts( $scripts );
 

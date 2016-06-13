@@ -67,23 +67,68 @@
             // Store object in new var
             var self = this;
 
+            // Ajax Cache
+            jQuery.ajaxSetup({
+                cache: true,
+                async: true
+            });
+
+            // AOS - Animate on scroll library.
+            AOS.init({
+                easing  : 'ease',
+                duration: 1000
+                //once: true
+            });
+
             // Run on document ready
             self.cache.$document.ready(function () {
-                self.getVendor();
+                self.getWebFont();
+                self.getPluginScripts();
             });
         },
 
         /**
-         * Get vendor scripts.
+         * Get web fonts.
          *
          * @since 1.0.0
          */
-        getVendor: function () {
+        getWebFont: function () {
             // Store object in new var
             var self = this;
+
+            self.cache.window.WebFontConfig = {
+                google: {
+                    families: ['Lato:400,700,300:latin']
+                },
+                custom: {
+                    families: ['Noto Sans JP'],
+                    urls    : [
+                        self.cache.wp.assets_dir + '/css/webfont.min.css'
+                    ]
+                }
+            };
+
+            if (typeof WebFont === 'object') {
+                WebFont.load(WebFontConfig);
+            }
+        },
+
+        /**
+         * Get plugin scripts.
+         *
+         * @since 1.0.0
+         */
+        getPluginScripts: function () {
+            // Store object in new var
+            var self = this;
+
+            for (var i = 0; i < self.cache.wp.queue.length; i++) {
+                self.cache.wp.$script(self.cache.wp.queue[i]);
+            }
+
         }
     };
 
     // Get things going
     VisuAlive.init();
-})(window.jQuery, window.$$, window.script, window, document, undefined);
+})(window.jQuery, window.$$, window.$script, window, document, undefined);

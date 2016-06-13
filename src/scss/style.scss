@@ -1,3 +1,8 @@
+@import "vendor/_normalize.min";
+@import "vendor/_gridlex.min";
+@import "vendor/_aos.min";
+
+
 * {
     box-sizing: border-box;
 }
@@ -314,7 +319,7 @@ html.wf-active,
 
 /* 740px */
 
-@media screen and (min-width: 46.25em) {
+@media screen and (min-width: 59.6875em) {
     .kuck1u {
         width: 80%;
     }

@@ -35,15 +35,17 @@ module.exports = {
         dest: dest + "/css"
     },
     js       : {
-        src : src + [
-            "/js/**/*.js",
-            "!/js/**/*.min.js"
+        map : src + "/js/**/*.map",
+        src : [
+            src + "/js/**/*.js",
+            "!" + src + "/js/**/_*.js"
         ],
         dest: dest + "/js"
     },
     del    : [
-        dest + "/css/**/*.css",
         dest + "/img/**/*.+(jpg|jpeg|png|gif|svg)",
+        dest + "/css/**/*.css",
+        dest + "/js/**/*.+(js|map)",
         "!" + dest + "/css/vendor/**/*.css"
     ]
 };
