@@ -11,4 +11,4 @@
 
 var conf = require("./gulp/config.js");
 var requireDir = require("require-dir");
-var tasks = requireDir(conf.tasks);
+var tasks = requireDir(conf.gulpTasks);

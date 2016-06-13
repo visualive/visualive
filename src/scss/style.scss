@@ -18,6 +18,7 @@ html {
 }
 
 body {
+    background-color: darken(#fff, 10%);
     color: #222;
     font-family: Lato, 'Noto Sans JP', Verdana, Roboto, 'Droid Sans', '游ゴシック', YuGothic, 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, fantasy, sans-serif;
     font-style: normal;
@@ -36,6 +37,7 @@ html.wf-active,
 
 .loader {
     font-size: 10px;
+    font-size: 1rem;
     left: 50%;
     opacity: 1;
     position: absolute;
@@ -299,12 +301,6 @@ html.wf-active,
 
 
 /* 620px */
-
-@media screen and (min-width: 38.75em) {
-    .kuck1u {
-        width: 90%;
-    }
-}
 
 @media screen and (min-width: 38.75em) {
     .canopy-content .canopy-title * {
