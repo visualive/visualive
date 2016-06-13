@@ -21,5 +21,9 @@ gulp.task("js", function () {
 
 gulp.task("js:map", function () {
     return gulp.src(conf.js.map)
-        .pipe(gulp.dest(conf.js.dest));
+        .pipe(gulp.dest(conf.js.dest))
+        .pipe(browserSync.reload({
+            stream: true,
+            once: true
+        }));
 });

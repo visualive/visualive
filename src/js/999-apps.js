@@ -125,10 +125,9 @@
             for (var i = 0; i < self.cache.wp.queue.length; i++) {
                 self.cache.wp.$script(self.cache.wp.queue[i]);
             }
-
         }
     };
 
     // Get things going
     VisuAlive.init();
-})(window.jQuery, window.$$, window.$script, window, document, undefined);
+})(window.jQuery, window.$$, window.script, window, document, undefined);
