@@ -125,7 +125,7 @@ class VisuAlive_Scripts {
 			}
 		}
 
-		return $scripts;
+		return apply_filters( 'visualive_jquery_dependent_scripts', $scripts );
 	}
 
 	/**

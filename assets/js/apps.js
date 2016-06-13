@@ -191,7 +191,7 @@ jQuery.noConflict();
         cacheElements: function () {
             this.cache = {
                 $        : $,
-                $script  : $script,
+                $$       : $$,
                 $window  : $(window),
                 window   : window,
                 $document: $(document),
@@ -226,6 +226,7 @@ jQuery.noConflict();
             self.cache.$document.ready(function () {
                 self.getWebFont();
                 self.getPluginScripts();
+                self.canopy();
             });
         },
 
@@ -264,9 +265,34 @@ jQuery.noConflict();
             // Store object in new var
             var self = this;
 
+            self.cache.wp.queue.unshift('//platform.twitter.com/widgets.js');
+            self.cache.wp.queue.unshift('//connect.facebook.net/ja_JP/sdk.js');
+            self.cache.wp.queue.unshift('//www.google-analytics.com/analytics.js');
+
             for (var i = 0; i < self.cache.wp.queue.length; i++) {
-                self.cache.wp.$script(self.cache.wp.queue[i]);
+                $script(self.cache.wp.queue[i]);
             }
+        },
+
+        canopy: function () {
+            // Store object in new var
+            var self = this;
+            var timer = false;
+            var height = self.cache.$$(window).height();
+
+            self.cache.$$('.canopy').css({"height": height});
+
+            //self.cache.$$(window).resize(function () {
+            //    if (timer !== false) {
+            //        clearTimeout(timer);
+            //    }
+            //
+            //    timer = setTimeout(function () {
+            //        height = self.cache.$$(window).height() + 60;
+            //
+            //        self.cache.$$('.canopy').css({"height": height});
+            //    }, 200);
+            //});
         }
     };
 

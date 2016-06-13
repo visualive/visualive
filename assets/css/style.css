@@ -1833,7 +1833,8 @@ body[aos-delay='3000'] [aos].aos-animate {
 }
 
 html,
-body { /*height: 100%;*/ /*overflow: hidden;*/
+body {
+	height: 100%; /*overflow: hidden;*/
 }
 
 html {
@@ -1981,11 +1982,8 @@ html.wf-active,
 	height: 100vh;
 	margin: 0;
 	padding: 0;
-	background-image: url(../img/canopy.jpg);
-	background-repeat: no-repeat;
-	background-attachment: scroll;
-	background-position: center;
-	background-size: cover;
+	transition: background .3s;
+	background: url(../img/canopy.jpg) no-repeat center/cover;
 }
 
 .canopy-nav {
