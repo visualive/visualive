@@ -15,7 +15,6 @@
 html,
 body {
     height: 100%;
-    /*overflow: hidden;*/
 }
 
 html {
@@ -160,7 +159,7 @@ html.wf-active,
 
 .button:hover {
     background-color: #fff;
-    color: #000;
+    color: #222;
     -webkit-transition: all .7s;
     transition: all .7s;
 }
@@ -247,7 +246,7 @@ html.wf-active,
     height: 1px;
     left: 50%;
     margin-left: -60px;
-    margin-top: 1em;
+    margin-top: .9em;
     position: absolute;
     top: 0;
     width: 120px;

@@ -11,7 +11,8 @@ gulp.task("js", function () {
         .pipe($.crLfReplace({changeCode: "LF"}))
         .pipe(gulp.dest(conf.js.dest))
         .pipe($.rename({suffix: ".min"}))
-        .pipe($.uglify({preserveComments: "some"}))
+        //.pipe($.uglify({preserveComments: "some"}))
+        .pipe($.uglify())
         .pipe(gulp.dest(conf.js.dest))
         .pipe(browserSync.reload({
             stream: true,

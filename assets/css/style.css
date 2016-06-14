@@ -1963,7 +1963,7 @@ html.wf-active,
 
 .button:hover {
 	transition: all .7s;
-	color: #000;
+	color: #222;
 	background-color: #fff;
 }
 
@@ -2047,7 +2047,7 @@ html.wf-active,
 	left: 50%;
 	width: 120px;
 	height: 1px;
-	margin-top: 1em;
+	margin-top: .9em;
 	margin-left: -60px;
 	content: ' ';
 	background-color: #e4e4e4;

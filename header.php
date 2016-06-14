@@ -25,13 +25,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 <html <?php language_attributes(); ?> class="no-js">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta http-equiv="x-dns-prefetch-control" content="on">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-dns-prefetch-control" content="on">
 	<link rel="dns-prefetch" href="//www.google-analytics.com">
 	<link rel="dns-prefetch" href="//ajax.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="dns-prefetch" href="//connect.facebook.net">
+	<link rel="dns-prefetch" href="//platform.twitter.com">
 	<?php wp_head(); ?>
 </head>
 
