@@ -1834,7 +1834,7 @@ body[aos-delay='3000'] [aos].aos-animate {
 
 html,
 body {
-	height: 100%; /*overflow: hidden;*/
+	height: 100%;
 }
 
 html {

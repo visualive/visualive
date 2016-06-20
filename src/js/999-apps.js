@@ -31,6 +31,12 @@
          */
         cache: {},
 
+        settings: {
+            facebook : true,
+            twitter  : true,
+            analytics: true
+        },
+
         /**
          * Main Function.
          *
@@ -47,13 +53,18 @@
          * @since 1.0.0
          */
         cacheElements: function () {
-            this.cache = {
+            // Store object in new var
+            var self = this;
+            var settings = $.extend({}, self.settings, VISUALIVE.settings);
+
+            self.cache = {
                 $        : $,
                 $$       : $$,
                 $window  : $(window),
                 window   : window,
                 $document: $(document),
                 document : document,
+                settings : settings,
                 wp       : VISUALIVE
             };
         },
@@ -82,9 +93,9 @@
 
             // Run on document ready
             self.cache.$document.ready(function () {
+                self.canopy();
                 self.getWebFont();
                 self.getPluginScripts();
-                self.canopy();
             });
         },
 
@@ -122,13 +133,28 @@
         getPluginScripts: function () {
             // Store object in new var
             var self = this;
+            var queue;
+            var filePlace;
 
-            self.cache.wp.queue.unshift('//platform.twitter.com/widgets.js');
-            self.cache.wp.queue.unshift('//connect.facebook.net/ja_JP/sdk.js');
-            self.cache.wp.queue.unshift('//www.google-analytics.com/analytics.js');
+            if (0 < self.cache.wp.queue.length) {
+                for (var i = 0; i < self.cache.wp.queue.length; i++) {
+                    queue = self.cache.wp.queue[i];
+                    filePlace = true == self._isUrl(queue) ? self._removeDomain(queue) : queue;
 
-            for (var i = 0; i < self.cache.wp.queue.length; i++) {
-                $script(self.cache.wp.queue[i]);
+                    $script(filePlace);
+                }
+            }
+
+            if (true === self.cache.settings.facebook) {
+                $script('//connect.facebook.net/ja_JP/sdk.js');
+            }
+
+            if (true === self.cache.settings.twitter) {
+                $script('//platform.twitter.com/widgets.js');
+            }
+
+            if (true === self.cache.settings.analytics) {
+                $script('//www.google-analytics.com/analytics.js');
             }
         },
 
@@ -151,6 +177,45 @@
             //        self.cache.$$('.canopy').css({"height": height});
             //    }, 200);
             //});
+        },
+
+        /**
+         * Is url
+         * @param   {string}  url
+         * @returns {boolean}
+         * @private
+         * @since 1.0.0
+         */
+        _isUrl: function (url) {
+            var result = false;
+
+            if (url !== undefined || url !== null) {
+                var match = url.match(/^([\w]+:\/\/|\/\/)[^\/]+$/i);
+
+                result = (match !== null);
+            }
+
+            return result;
+        },
+
+        /**
+         * Remove domain
+         * @param   {string} url
+         * @returns {string}
+         * @private
+         * @since 1.0.0
+         */
+        _removeDomain: function (url) {
+            // Store object in new var
+            var self = this;
+            var isUrl = self._isUrl(url);
+            var result = url;
+
+            if (isUrl) {
+                result = url.replace(/^([\w]+:\/\/|\/\/)[^\/]+$/i, '');
+            }
+
+            return result;
         }
     };
 

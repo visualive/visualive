@@ -23,6 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once dirname( dirname( __FILE__ ) ) . '/incs/class-style.php';
 require_once dirname( dirname( __FILE__ ) ) . '/incs/class-script.php';
+require_once dirname( dirname( __FILE__ ) ) . '/incs/class-jetpack.php';
 
 class VisuAlive_Functions {
 	/**
@@ -36,13 +37,19 @@ class VisuAlive_Functions {
 		static $instance = false;
 
 		if ( ! $instance ) {
-			$instance = new VisuAlive_Functions;
+			$instance = new self;
 		}
 
 		return $instance;
 	}
 
-	public function __construct() {
+	private function __construct() {
+		/**
+		 * Sets the content width in pixels, based on the theme's design and stylesheet.
+		 * Priority 0 to make it available to lower priority callbacks.
+		 */
+		$GLOBALS['content_width'] = apply_filters( 'visualive_content_width', 840 );
+
 		/**
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -65,9 +72,32 @@ class VisuAlive_Functions {
 		add_theme_support( 'title-tag' );
 
 		/**
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
+		add_theme_support( 'html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		) );
+
+		/**
 		 * Enqueues scripts and styles.
 		 */
 		VisuAlive_Styles::init();
 		VisuAlive_Scripts::init();
+
+		/**
+		 * Jetpack Compatibility.
+		 * See: http://jetpack.me/
+		 */
+		VisuAlive_Jetpack::init();
+
+		/**
+		 * Flush rewrite rules for Menus CPT on setup and switch.
+		 */
+		flush_rewrite_rules();
 	}
 }

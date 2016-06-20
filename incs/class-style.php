@@ -44,6 +44,7 @@ class VisuAlive_Styles {
 		add_action( 'wp_enqueue_scripts', [ &$this, 'register_styles' ], 0 );
 		add_action( 'wp_enqueue_scripts', [ &$this, 'enqueue_styles' ], 1 );
 		add_filter( 'style_loader_tag', [ &$this, 'replace_style_tag' ] );
+		add_filter( 'style_loader_src', [ &$this, 'remove_src_version' ] );
 	}
 
 	/**

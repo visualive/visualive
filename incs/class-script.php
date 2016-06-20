@@ -51,6 +51,7 @@ class VisuAlive_Scripts {
 		add_action( 'wp_enqueue_scripts', [ &$this, 'register_scripts' ], 10 );
 		add_action( 'wp_enqueue_scripts', [ &$this, 'enqueue_scripts' ], 20 );
 		add_filter( 'script_loader_tag', [ &$this, 'replace_script_tag' ] );
+		add_filter( 'script_loader_src', [ &$this, 'remove_src_version' ] );
 	}
 
 	/**
@@ -75,11 +76,12 @@ class VisuAlive_Scripts {
 	 * @since VisuAlive 1.0.0
 	 */
 	public function enqueue_scripts() {
-		$l10n          = self::theme_path();
-		$l10n['queue'] = self::jquery_dependent_scripts();
-		$files         = apply_filters( 'visualive_inline_scripts', [ ] );
-		$scripts       = self::files_comb( $files );
-		$scripts       = self::simplified_minify_scripts( $scripts );
+		$l10n             = self::theme_path();
+		$l10n['settings'] = apply_filters( 'visualive_script_settings', [ ] );
+		$l10n['queue']    = self::jquery_dependent_scripts();
+		$files            = apply_filters( 'visualive_inline_scripts', [ ] );
+		$scripts          = self::files_comb( $files );
+		$scripts          = self::simplified_minify_scripts( $scripts );
 
 		wp_add_inline_script( 'jquery-core', $scripts, 'before' );
 		wp_localize_script( 'jquery-core', 'VISUALIVE', $l10n );

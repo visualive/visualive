@@ -23,6 +23,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 trait VisuAlive_Trait_Functions {
 	/**
+	 * Plugin name: Strip WP Version in Stylesheets/Scripts
+	 *
+	 * @since VisuAlive 1.0.0
+	 *
+	 * @param string $src
+	 *
+	 * @return string
+	 */
+	public static function remove_src_version( $src ) {
+		global $wp_version;
+
+		$version_str        = 'ver=' . $wp_version;
+		$version_str_offset = strlen( $src ) - strlen( $version_str );
+
+		if ( substr( $src, $version_str_offset ) == $version_str ) {
+			$src = substr( $src, 0, $version_str_offset );
+			$src = rtrim( $src, '?' );
+			$src = rtrim( $src, '&' );
+
+			return $src;
+		} else {
+			return $src;
+		}
+	}
+
+	/**
 	 * Theme path.
 	 *
 	 * @since VisuAlive 1.0.0
@@ -45,7 +71,7 @@ trait VisuAlive_Trait_Functions {
 	 *
 	 * @param array $files
 	 *
-	 * @return string
+	 * @return null|string
 	 */
 	public static function files_comb( $files = [ ] ) {
 		$codes = null;
@@ -75,7 +101,7 @@ trait VisuAlive_Trait_Functions {
 	 */
 	public static function remove_domain( $url = '' ) {
 		if ( true === self::is_url( $url ) ) {
-			$url = preg_replace( '/^https?:\/\/[^\/]+/i', '', $url );
+			$url = preg_replace( '/^[\w]+:\/\/[^\/]+/i', '', $url );
 		}
 
 		return sprintf( '%s', $url );
