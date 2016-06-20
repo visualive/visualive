@@ -174,9 +174,11 @@ jQuery.noConflict();
         cache: {},
 
         settings: {
-            facebook : true,
-            twitter  : true,
-            analytics: true
+            locale         : 'en_US',
+            facebookAppID  : '',
+            facebook       : true,
+            twitter        : true,
+            googleAnalytics: true
         },
 
         /**
@@ -237,6 +239,7 @@ jQuery.noConflict();
             self.cache.$document.ready(function () {
                 self.canopy();
                 self.getWebFont();
+                self.getSocialSDK();
                 self.getPluginScripts();
             });
         },
@@ -286,17 +289,27 @@ jQuery.noConflict();
                     $script(filePlace);
                 }
             }
+        },
+
+        /**
+         * Get Social SDK.
+         *
+         * @since 1.0.0
+         */
+        getSocialSDK: function () {
+            // Store object in new var
+            var self = this;
 
             if (true === self.cache.settings.facebook) {
-                $script('//connect.facebook.net/ja_JP/sdk.js');
+                self._sdkInitFacebook();
             }
 
             if (true === self.cache.settings.twitter) {
-                $script('//platform.twitter.com/widgets.js');
+                self._sdkInitTwitter();
             }
 
-            if (true === self.cache.settings.analytics) {
-                $script('//www.google-analytics.com/analytics.js');
+            if (true === self.cache.settings.googleAnalytics) {
+                self._sdkInitGoogleAnalytics();
             }
         },
 
@@ -307,22 +320,11 @@ jQuery.noConflict();
             var height = self.cache.$$(window).height();
 
             self.cache.$$('.canopy').css({"height": height});
-
-            //self.cache.$$(window).resize(function () {
-            //    if (timer !== false) {
-            //        clearTimeout(timer);
-            //    }
-            //
-            //    timer = setTimeout(function () {
-            //        height = self.cache.$$(window).height() + 60;
-            //
-            //        self.cache.$$('.canopy').css({"height": height});
-            //    }, 200);
-            //});
         },
 
         /**
-         * Is url
+         * Is url.
+         *
          * @param   {string}  url
          * @returns {boolean}
          * @private
@@ -341,7 +343,25 @@ jQuery.noConflict();
         },
 
         /**
-         * Remove domain
+         * Is number.
+         *
+         * @param   {number|string} num
+         * @returns {boolean}
+         * @private
+         */
+        _isNumber: function (num) {
+            var result = false;
+
+            if ('number' === typeof num || 'string' === typeof num) {
+                result = (num === parseFloat(num) && isFinite(num));
+            }
+
+            return result;
+        },
+
+        /**
+         * Remove domain.
+         *
          * @param   {string} url
          * @returns {string}
          * @private
@@ -358,6 +378,68 @@ jQuery.noConflict();
             }
 
             return result;
+        },
+
+        /**
+         * Facebook SDK Init.
+         *
+         * @private
+         * @since 1.0.0
+         */
+        _sdkInitFacebook: function () {
+            // Store object in new var
+            var self = this;
+
+            if (typeof FB === 'undefined') {
+                $script('//connect.facebook.net/' + self.cache.settings.locale + '/sdk.js', function () {
+                    var fb_init = {
+                        version: 'v2.6',
+                        status : true,
+                        cookie : true,
+                        xfbml  : true
+                    };
+                    var appID = self.cache.settings.facebookAppID;
+
+                    if ('' !== appID && true === self._isNumber(appID)) {
+                        fb_init.appId = appID;
+                    }
+
+                    self.cache.window.fbAsyncInit = function () {
+                        FB.init(fb_init);
+                    };
+                }, self);
+            }
+        },
+
+        /**
+         * Twitter SDK Init.
+         *
+         * @private
+         * @since 1.0.0
+         */
+        _sdkInitTwitter: function () {
+            if (typeof twttr === 'undefined') {
+                $script('//platform.twitter.com/widgets.js', function () {
+                    twttr.widgets.load();
+                });
+            }
+        },
+
+        /**
+         * Google Analytics Init.
+         *
+         * @private
+         * @since 1.0.0
+         */
+        _sdkInitGoogleAnalytics: function () {
+            // Store object in new var
+            var self = this;
+            var analytics = self.cache.window.GoogleAnalyticsObject;
+
+            if (typeof analytics === 'undefined' || 'ga' !== analytics) {
+                $script('//www.google-analytics.com/analytics.js', function () {
+                }, self);
+            }
         }
     };
 

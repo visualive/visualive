@@ -77,7 +77,10 @@ class VisuAlive_Scripts {
 	 */
 	public function enqueue_scripts() {
 		$l10n             = self::theme_path();
-		$l10n['settings'] = apply_filters( 'visualive_script_settings', [ ] );
+		$l10n['settings'] = apply_filters( 'visualive_script_settings', [
+			'locale' => self::get_locale(),
+			'facebookAppID' => 272538956253165,
+		] );
 		$l10n['queue']    = self::jquery_dependent_scripts();
 		$files            = apply_filters( 'visualive_inline_scripts', [ ] );
 		$scripts          = self::files_comb( $files );
