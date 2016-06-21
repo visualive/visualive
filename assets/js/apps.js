@@ -162,8 +162,8 @@ jQuery.noConflict();
  *            You should have received a copy of the GNU General Public License
  *            along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-(function ($, $$, $script, window, document, undefined) {
-    'use strict';
+(function ($, $script, window, document, undefined) {
+    "use strict";
 
     var VisuAlive = {
         /**
@@ -174,8 +174,8 @@ jQuery.noConflict();
         cache: {},
 
         settings: {
-            locale         : 'en_US',
-            facebookAppID  : '',
+            locale         : "en_US",
+            facebookAppID  :"",
             facebook       : true,
             twitter        : true,
             googleAnalytics: true
@@ -203,7 +203,6 @@ jQuery.noConflict();
 
             self.cache = {
                 $        : $,
-                $$       : $$,
                 $window  : $(window),
                 window   : window,
                 $document: $(document),
@@ -223,14 +222,14 @@ jQuery.noConflict();
             var self = this;
 
             // Ajax Cache
-            jQuery.ajaxSetup({
+            self.cache.$.ajaxSetup({
                 cache: true,
                 async: true
             });
 
             // AOS - Animate on scroll library.
             AOS.init({
-                easing  : 'ease',
+                easing  : "ease",
                 duration: 1000
                 //once: true
             });
@@ -255,17 +254,17 @@ jQuery.noConflict();
 
             self.cache.window.WebFontConfig = {
                 google: {
-                    families: ['Lato:400,700,300:latin']
+                    families: ["Lato:400,700,300:latin"]
                 },
                 custom: {
-                    families: ['Noto Sans JP'],
+                    families: ["Noto Sans JP"],
                     urls    : [
-                        self.cache.wp.assets_dir + '/css/webfont.min.css'
+                        self._removeDomain(self.cache.wp.assets_dir) + "/css/webfont.min.css"
                     ]
                 }
             };
 
-            if (typeof WebFont === 'object') {
+            if (typeof WebFont === "object") {
                 WebFont.load(WebFontConfig);
             }
         },
@@ -316,10 +315,9 @@ jQuery.noConflict();
         canopy: function () {
             // Store object in new var
             var self = this;
-            var timer = false;
-            var height = self.cache.$$(window).height();
+            var height = self.cache.$window.height();
 
-            self.cache.$$('.canopy').css({"height": height});
+            self.cache.$(".canopy").css({"height": height});
         },
 
         /**
@@ -352,7 +350,7 @@ jQuery.noConflict();
         _isNumber: function (num) {
             var result = false;
 
-            if ('number' === typeof num || 'string' === typeof num) {
+            if ("number" === typeof num || "string" === typeof num) {
                 result = (num === parseFloat(num) && isFinite(num));
             }
 
@@ -374,7 +372,7 @@ jQuery.noConflict();
             var result = url;
 
             if (isUrl) {
-                result = url.replace(/^([\w]+:\/\/|\/\/)[^\/]+$/i, '');
+                result = url.replace(/^([\w]+:\/\/|\/\/)[^\/]+$/i, "");
             }
 
             return result;
@@ -390,17 +388,17 @@ jQuery.noConflict();
             // Store object in new var
             var self = this;
 
-            if (typeof FB === 'undefined') {
-                $script('//connect.facebook.net/' + self.cache.settings.locale + '/sdk.js', function () {
+            if (typeof FB === "undefined") {
+                $script("//connect.facebook.net/" + self.cache.settings.locale + "/sdk.js", function () {
                     var fb_init = {
-                        version: 'v2.6',
+                        version: "v2.6",
                         status : true,
                         cookie : true,
                         xfbml  : true
                     };
                     var appID = self.cache.settings.facebookAppID;
 
-                    if ('' !== appID && true === self._isNumber(appID)) {
+                    if ("" !== appID && true === self._isNumber(appID)) {
                         fb_init.appId = appID;
                     }
 
@@ -418,8 +416,8 @@ jQuery.noConflict();
          * @since 1.0.0
          */
         _sdkInitTwitter: function () {
-            if (typeof twttr === 'undefined') {
-                $script('//platform.twitter.com/widgets.js', function () {
+            if (typeof twttr === "undefined") {
+                $script("//platform.twitter.com/widgets.js", function () {
                     twttr.widgets.load();
                 });
             }
@@ -436,8 +434,8 @@ jQuery.noConflict();
             var self = this;
             var analytics = self.cache.window.GoogleAnalyticsObject;
 
-            if (typeof analytics === 'undefined' || 'ga' !== analytics) {
-                $script('//www.google-analytics.com/analytics.js', function () {
+            if (typeof analytics === "undefined" || "ga" !== analytics) {
+                $script("//www.google-analytics.com/analytics.js", function () {
                 }, self);
             }
         }
@@ -445,4 +443,4 @@ jQuery.noConflict();
 
     // Get things going
     VisuAlive.init();
-})(window.jQuery, window.$$, window.script, window, document, undefined);
+})(window.jQuery, window.script, window, document, undefined);

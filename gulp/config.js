@@ -29,8 +29,7 @@ module.exports = {
     },
     scss     : {
         src : [
-            src + "/scss/**/*.scss",
-            "!" + src + "/scss/**/_*.scss"
+            src + "/scss/**/*.scss"
         ],
         dest: dest + "/css"
     },
