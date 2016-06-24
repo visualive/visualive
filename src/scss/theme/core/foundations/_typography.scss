@@ -1,0 +1,46 @@
+html {
+    font-size: strip-units($base-font-size) / 16 * 100%;
+}
+
+body {
+    color: $base-font-color;
+    font-family: $base-font-family;
+    font-style: normal;
+    @include font-size($base-font-size);
+    @include line-height($base-font-size);
+}
+
+h1 {
+    @include font-size($base-font-size, 2);
+    @include vertical-rhythm();
+}
+
+h2 {
+    @include font-size($base-font-size, 1.75);
+    @include vertical-rhythm();
+}
+
+h3 {
+    @include font-size($base-font-size, 1.5);
+    @include vertical-rhythm();
+}
+
+h4 {
+    @include font-size($base-font-size, 1.25);
+    @include vertical-rhythm();
+}
+
+h5 {
+    @include font-size($base-font-size);
+    @include vertical-rhythm();
+}
+
+h6 {
+    @include font-size($base-font-size);
+    @include vertical-rhythm();
+}
+
+p {
+    @include font-size($base-font-size);
+    @include vertical-rhythm();
+}

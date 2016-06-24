@@ -1841,20 +1841,77 @@ body {
 	height: 100%;
 }
 
+body {
+	background: #fff;
+}
+
 html {
-	font-size: 62.5%;
+	font-size: 100%;
 }
 
 body {
-	background-color: #e6e6e6;
 	color: #222;
-	font-family: Lato, 'Noto Sans JP', Verdana, Roboto, 'Droid Sans', '游ゴシック', YuGothic, 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, fantasy, sans-serif;
+	font-family: Lato, "Noto Sans JP", Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, fantasy, sans-serif;
 	font-style: normal;
 	font-size: 16px;
-	font-size: 1.6rem;
-	line-height: 1.5;
-	margin: 0;
-	padding: 0;
+	font-size: 1rem;
+	line-height: 2px;
+}
+
+h1 {
+	font-size: 32px;
+	font-size: 2rem;
+	line-height: 32px;
+	margin-bottom: 32px;
+	margin-top: 32px;
+}
+
+h2 {
+	font-size: 28px;
+	font-size: 1.75rem;
+	line-height: 32px;
+	margin-bottom: 32px;
+	margin-top: 32px;
+}
+
+h3 {
+	font-size: 24px;
+	font-size: 1.5rem;
+	line-height: 32px;
+	margin-bottom: 32px;
+	margin-top: 32px;
+}
+
+h4 {
+	font-size: 20px;
+	font-size: 1.25rem;
+	line-height: 32px;
+	margin-bottom: 32px;
+	margin-top: 32px;
+}
+
+h5 {
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 32px;
+	margin-bottom: 32px;
+	margin-top: 32px;
+}
+
+h6 {
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 32px;
+	margin-bottom: 32px;
+	margin-top: 32px;
+}
+
+p {
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 32px;
+	margin-bottom: 32px;
+	margin-top: 32px;
 }
 
 html.wf-active,
@@ -1862,8 +1919,8 @@ html.wf-active,
 }
 
 .loader {
-	font-size: 10px;
-	font-size: 1rem;
+	font-size: 10;
+	font-size: 0.625rem;
 	left: 50%;
 	opacity: 1;
 	position: absolute;
@@ -2044,6 +2101,10 @@ html.wf-active,
 	font-weight: normal;
 }
 
+.canopy-content .canopy-excerpt .aos-animate {
+	min-height: 72px;
+}
+
 .canopy-content .canopy-excerpt:before {
 	background-color: #e4e4e4;
 	content: ' ';
@@ -2103,6 +2164,11 @@ html.wf-active,
 
 .featured--secure .panel-inner {
 	background-color: rgba(0, 159, 140, 0.8);
+}
+
+.kuck1u {
+	font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+	font-size: 22.652px;
 }
 
 /* 620px */

@@ -35,8 +35,8 @@
             locale         : "en_US",
             facebookAppID  :"",
             facebook       : true,
-            twitter        : true,
-            googleAnalytics: true
+            twitter        : false,
+            googleAnalytics: false
         },
 
         /**
@@ -173,9 +173,12 @@
         canopy: function () {
             // Store object in new var
             var self = this;
+            var canopy = self.cache.$(".canopy");
             var height = self.cache.$window.height();
 
-            self.cache.$(".canopy").css({"height": height});
+            if ( 1 >= canopy.length) {
+                canopy.css({"height": height});
+            }
         },
 
         /**

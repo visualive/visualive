@@ -1,0 +1,4 @@
+@mixin font-size($size: $base-font-size, $scale: 1) {
+    font-size: $size * $scale;
+    font-size: px2rem($size) * $scale;
+}

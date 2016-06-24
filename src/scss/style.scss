@@ -1,37 +1,4 @@
-@import "vendor/_normalize.min";
-@import "vendor/_gridlex.min";
-@import "vendor/_aos.min";
-
-
-* {
-    box-sizing: border-box;
-}
-
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    height: 100%;
-}
-
-html {
-    font-size: 62.5%;
-}
-
-body {
-    background-color: darken(#fff, 10%);
-    color: #222;
-    font-family: Lato, 'Noto Sans JP', Verdana, Roboto, 'Droid Sans', '游ゴシック', YuGothic, 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, fantasy, sans-serif;
-    font-style: normal;
-    font-size: 16px;
-    font-size: 1.6rem;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-}
+@import "theme/visualive";
 
 html.wf-active,
 .wf-active .container {
@@ -40,8 +7,7 @@ html.wf-active,
 }
 
 .loader {
-    font-size: 10px;
-    font-size: 1rem;
+    @include font-size(10);
     left: 50%;
     opacity: 1;
     position: absolute;
@@ -239,6 +205,10 @@ html.wf-active,
     font-weight: normal;
 }
 
+.canopy-content .canopy-excerpt .aos-animate {
+    min-height: 72px;
+}
+
 .canopy-content .canopy-excerpt:before {
     background-color: #e4e4e4;
     content: ' ';
@@ -298,6 +268,11 @@ html.wf-active,
 
 .featured--secure .panel-inner {
     background-color: rgba(0, 159, 140, .8);
+}
+
+.kuck1u {
+    font-family: $helvetica;
+    font-size: golden-ratio(14px,  1);
 }
 
 

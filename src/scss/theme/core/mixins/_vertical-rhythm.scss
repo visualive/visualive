@@ -1,0 +1,6 @@
+@mixin vertical-rhythm($line: 1) {
+    $value: vertical-rhythm($line);
+    line-height: $value;
+    margin-bottom: $value;
+    margin-top: $value;
+}
