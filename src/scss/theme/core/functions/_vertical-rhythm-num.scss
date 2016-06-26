@@ -2,9 +2,9 @@
     $value: strip-units($base-line-height) / strip-units($line);
 
     @if 'rem' == $base-unit {
-        $value: px2rem($value);
+        $value: rem($value);
     } @else if 'em' == $base-unit {
-        $value: px2em($value);
+        $value: em($value);
     } @else {
         $value: #{$value}px;
     }

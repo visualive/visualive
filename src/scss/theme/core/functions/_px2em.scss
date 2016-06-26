@@ -1,9 +1,0 @@
-@function px2em($pixel) {
-    $base-size: strip-units($base-font-size);
-
-    @if "null" == type-of($pixel) {
-        $pixel: $base-size;
-    }
-
-    @return #{$pixel / $base-size}em;
-}

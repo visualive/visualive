@@ -8,12 +8,12 @@
     $value: $pixel * $scale;
 
     @if 'em' == $base-unit {
-        font-size: px2em($value);
+        font-size: em($value);
     } @else {
         font-size: #{$value}px;
     }
 
     @if 'rem' == $base-unit {
-        font-size: px2rem($value);
+        font-size: rem($value);
     }
 }

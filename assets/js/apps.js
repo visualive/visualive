@@ -317,9 +317,12 @@ jQuery.noConflict();
             var self = this;
             var canopy = self.cache.$(".canopy");
             var height = self.cache.$window.height();
+            var fontSize = parseFloat(self.cache.window.getComputedStyle(self.cache.document.getElementsByTagName("body")[0], null).getPropertyValue('font-size'));
+            var x = Math.ceil(height / fontSize);
+            var z = parseFloat(x * fontSize);
 
             if ( 1 >= canopy.length) {
-                canopy.css({"height": height});
+                canopy.css({"height": z});
             }
         },
 

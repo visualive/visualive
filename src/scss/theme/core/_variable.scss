@@ -8,11 +8,11 @@ $base-font-family: Lato, 'Noto Sans JP', Verdana, Roboto, 'Droid Sans', '游ゴ�
 $base-font-color: #222 !default;
 $base-line-height: $base-font-size * 2 !default;
 
-$base-btn-bg-color: #FFFFFF !default;
-$base-btn-bd-color: #22AE0D !default;
+$base-btn-bg-color: transparent !default;
+$base-btn-bd-color: #FFFFFF !default;
 $base-btn-color: $base-btn-bd-color !default;
 $base-btn-hover-bg-color: $base-btn-bd-color !default;
-$base-btn-hover-color: $base-btn-bg-color !default;
+$base-btn-hover-color: $base-font-color !default;
 
 $h1-font-size: 2    * $base-font-size;
 $h2-font-size: 1.75 * $base-font-size;

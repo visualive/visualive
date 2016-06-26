@@ -133,36 +133,30 @@ html.wf-active,
 .canopy-content .canopy-title * {
     @include font-size(24);
     letter-spacing: 4px;
-    margin: 0;
     padding: 0;
     text-transform: uppercase;
 }
 
 .canopy-content .canopy-excerpt {
     margin: 0;
-    padding: 2em 0 0;
+    padding: #{vertical-rhythm-num() /2} 0 0;
     position: relative;
 }
 
 .canopy-content .canopy-excerpt * {
-    font-size: 1.4rem;
+    @include font-size(14);
     margin: 0;
     padding: 0;
     font-weight: normal;
 }
 
-.canopy-content .canopy-excerpt .aos-animate {
-    min-height: 72px;
-}
-
 .canopy-content .canopy-excerpt:before {
     background-color: #e4e4e4;
     content: ' ';
-    font-size: 1.6rem;
+    @include font-size();
     height: 1px;
     left: 50%;
     margin-left: -60px;
-    margin-top: .9em;
     position: absolute;
     top: 0;
     width: 120px;
@@ -181,7 +175,8 @@ html.wf-active,
 .panel-inner {
     height: 100%;
     left: 0;
-    padding: 60px;
+    overflow: hidden;
+    padding: vertical-rhythm-num() #{vertical-rhythm-num() * 2};
     position: relative;
     top: 0;
     width: 100%;
@@ -216,11 +211,6 @@ html.wf-active,
     background-color: rgba(0, 159, 140, .8);
 }
 
-.kuck1u {
-    font-family: $helvetica;
-    font-size: golden-ratio(14px,  1);
-}
-
 
 /* 620px */
 
@@ -240,11 +230,7 @@ html.wf-active,
 
 /* 955px */
 
-@media screen and (min-width: 59.6875em) {
-    .canopy-content {
-        padding: 16% 4%;
-    }
-}
+@media screen and (min-width: 59.6875em) {}
 
 
 /* 1240px */
