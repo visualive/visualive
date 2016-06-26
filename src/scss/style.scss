@@ -131,7 +131,7 @@ html.wf-active,
 }
 
 .canopy-content .canopy-title * {
-    font-size: 2.4rem;
+    @include font-size(24);
     letter-spacing: 4px;
     margin: 0;
     padding: 0;
@@ -226,10 +226,10 @@ html.wf-active,
 
 @media screen and (min-width: 38.75em) {
     .canopy-content .canopy-title * {
-        font-size: 3.6rem;
+        @include font-size(36);
     }
     .canopy-content .canopy-excerpt * {
-        font-size: 1.6rem;
+        @include font-size(16);
     }
 }
 

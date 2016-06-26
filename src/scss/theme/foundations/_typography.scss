@@ -5,42 +5,39 @@ html {
 body {
     color: $base-font-color;
     font-family: $base-font-family;
+    @include font-size();
     font-style: normal;
-    @include font-size($base-font-size);
-    @include line-height($base-font-size);
+    line-height: vertical-rhythm-num();
 }
 
 h1 {
-    @include font-size($base-font-size, 2);
-    @include vertical-rhythm();
+    @include vertical-rhythm(2);
 }
 
 h2 {
-    @include font-size($base-font-size, 1.75);
-    @include vertical-rhythm();
+    @include vertical-rhythm(1.75);
 }
 
 h3 {
-    @include font-size($base-font-size, 1.5);
-    @include vertical-rhythm();
+    @include vertical-rhythm(1.5);
 }
 
 h4 {
-    @include font-size($base-font-size, 1.25);
-    @include vertical-rhythm();
+    @include vertical-rhythm(1.25);
 }
 
 h5 {
-    @include font-size($base-font-size);
     @include vertical-rhythm();
 }
 
 h6 {
-    @include font-size($base-font-size);
     @include vertical-rhythm();
 }
 
 p {
-    @include font-size($base-font-size);
     @include vertical-rhythm();
+}
+
+.fb-like {
+    line-height: 1;
 }

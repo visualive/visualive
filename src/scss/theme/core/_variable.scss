@@ -1,10 +1,23 @@
+$base-unit: rem;
+
+$output-bourbon-deprecation-warnings: false;
 $base-bg-color: #f5f5f5 !default;
+
 $base-font-size: 16px !default;
 $base-font-family: Lato, 'Noto Sans JP', Verdana, Roboto, 'Droid Sans', '游ゴシック', YuGothic, 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, fantasy, sans-serif !default;
 $base-font-color: #222 !default;
 $base-line-height: $base-font-size * 2 !default;
+
 $base-btn-bg-color: #FFFFFF !default;
 $base-btn-bd-color: #22AE0D !default;
 $base-btn-color: $base-btn-bd-color !default;
 $base-btn-hover-bg-color: $base-btn-bd-color !default;
 $base-btn-hover-color: $base-btn-bg-color !default;
+
+$h1-font-size: 2    * $base-font-size;
+$h2-font-size: 1.75 * $base-font-size;
+$h3-font-size: 1.5  * $base-font-size;
+$h4-font-size: 1.25 * $base-font-size;
+$h5-font-size: 1    * $base-font-size;
+$h6-font-size: 1    * $base-font-size;
+$indent-amount: $base-line-height;

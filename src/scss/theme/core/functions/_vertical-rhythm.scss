@@ -1,3 +1,0 @@
-@function vertical-rhythm($line: 1) {
-    @return #{strip-units($base-line-height) / strip-units($line)}px;
-}

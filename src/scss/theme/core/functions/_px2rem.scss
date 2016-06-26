@@ -1,3 +1,9 @@
-@function px2rem($size) {
-    @return strip-units($size / $base-font-size) * 1rem;
+@function px2rem($pixel) {
+    $base-size: strip-units($base-font-size);
+
+    @if "null" == type-of($pixel) {
+        $pixel: $base-size;
+    }
+
+    @return ($pixel / $base-size) * 1rem;
 }

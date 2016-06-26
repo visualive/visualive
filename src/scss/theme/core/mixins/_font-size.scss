@@ -1,4 +1,19 @@
-@mixin font-size($size: $base-font-size, $scale: 1) {
-    font-size: $size * $scale;
-    font-size: px2rem($size) * $scale;
+@mixin font-size($pixel: null, $scale: 1) {
+    $base-size: strip-units($base-font-size);
+
+    @if "null" == type-of($pixel) {
+        $pixel: $base-size;
+    }
+
+    $value: $pixel * $scale;
+
+    @if 'em' == $base-unit {
+        font-size: px2em($value);
+    } @else {
+        font-size: #{$value}px;
+    }
+
+    @if 'rem' == $base-unit {
+        font-size: px2rem($value);
+    }
 }

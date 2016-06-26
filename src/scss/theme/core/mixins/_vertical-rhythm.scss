@@ -1,6 +1,13 @@
-@mixin vertical-rhythm($line: 1) {
-    $value: vertical-rhythm($line);
-    line-height: $value;
-    margin-bottom: $value;
-    margin-top: $value;
+@mixin vertical-rhythm($font-scale: 1, $font-size: null, $line: 1) {
+    $margin: vertical-rhythm-num($line);
+    $base-size: strip-units($base-font-size);
+
+    @if "null" == type-of($font-size) {
+        $pixel: $base-size;
+    }
+
+    @include font-size($font-size, $font-scale);
+    line-height: $margin;
+    margin-bottom: $margin;
+    margin-top: $margin;
 }
