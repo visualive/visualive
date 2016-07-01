@@ -2453,7 +2453,7 @@ html.wf-active,
 	height: 100%;
 	left: 0;
 	overflow: hidden;
-	padding: 2rem 4rem;
+	padding: 2rem;
 	position: relative;
 	top: 0;
 	width: 100%;
@@ -2508,6 +2508,15 @@ html.wf-active,
 .canopy-content .canopy-excerpt * {
 	font-size: 16px;
 	font-size: 1rem;
+}
+
+}
+
+@media screen and (min-width: 59.6875em) {
+
+.panel-inner {
+	padding-left: 4rem;
+	padding-right: 4rem;
 }
 
 }
