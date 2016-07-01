@@ -89,7 +89,7 @@ jQuery.noConflict();
         settings: {
             locale         : "en_US",
             facebookAppID  :"",
-            facebook       : true,
+            facebook       : false,
             twitter        : false,
             googleAnalytics: false
         },
@@ -213,7 +213,7 @@ jQuery.noConflict();
             var self = this;
 
             if (true === self.cache.settings.facebook) {
-                self._sdkInitFacebook();
+                self._sdkSetFacebook();
             }
 
             if (true === self.cache.settings.twitter) {
@@ -298,6 +298,25 @@ jQuery.noConflict();
         },
 
         /**
+         * Facebook Set SDK.
+         *
+         * @private
+         * @since 1.0.0
+         */
+        _sdkSetFacebook: function () {
+            // Store object in new var
+            var self = this;
+
+            if (typeof FB === "undefined") {
+                $script("//connect.facebook.net/" + self.cache.settings.locale + "/sdk.js", function () {
+                    self._sdkInitFacebook();
+                }, self);
+            } else {
+                self._sdkInitFacebook();
+            }
+        },
+
+        /**
          * Facebook SDK Init.
          *
          * @private
@@ -306,28 +325,21 @@ jQuery.noConflict();
         _sdkInitFacebook: function () {
             // Store object in new var
             var self = this;
+            var fb_init = {
+                version: "v2.6",
+                status : true,
+                cookie : true,
+                xfbml  : true
+            };
+            var appID = self.cache.settings.facebookAppID;
 
-            if (typeof FB === "undefined") {
-                $script("//connect.facebook.net/" + self.cache.settings.locale + "/sdk.js", "facebook" );
+            if ("" !== appID && true === self._isNumber(appID)) {
+                fb_init.appId = appID;
             }
 
-            $script.ready("facebook", function () {
-                var fb_init = {
-                    version: "v2.6",
-                    status : true,
-                    cookie : true,
-                    xfbml  : true
-                };
-                var appID = self.cache.settings.facebookAppID;
-
-                if ("" !== appID && true === self._isNumber(appID)) {
-                    fb_init.appId = appID;
-                }
-
-                self.cache.window.fbAsyncInit = function () {
-                    FB.init(fb_init);
-                };
-            }, self);
+            self.cache.window.fbAsyncInit = function () {
+                FB.init(fb_init);
+            };
         },
 
         /**
@@ -358,10 +370,10 @@ jQuery.noConflict();
             var analytics = self.cache.window.GoogleAnalyticsObject;
 
             if (typeof analytics === "undefined" || "ga" !== analytics) {
-                $script("//www.google-analytics.com/analytics.js", "analytics");
+                $script("//www.google-analytics.com/analytics.js", "googleAnalytics");
             }
 
-            $script("analytics", function () {
+            $script("googleAnalytics", function () {
             }, self);
         }
     };
