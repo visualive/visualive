@@ -91,11 +91,4 @@ get_header();
 <p>またご料理が云ってはかねるなら事ますて、人情へも、とうとう誰か至るが着るれありですあっれるですありと出るが、国は出来てみないた。まあもうはいくら逼といういたて、私をは生涯いっぱいまでこちらのご説明もないすれいうたい。あなたもひとまず立証の方にお拡張はなればみろんないなでて、一五の金力にとてもやるませという実在たて、あるいはその火事の個人でもっがっけれども、ここかがそこの自身を経験を立ち竦んておきなのたたと矛盾合っと意味換えるいないない。manにまた大森さんにもっとも少々落ちでものたなかっう。</p>
 <p>張さんはもともと理科と亡びるで行きあるものたたあり。</p>
 
-<!--<script src="--><?php //echo get_template_directory_uri(); ?><!--/src/baseliner-latest.min.js"></script>-->
-<!--<script>-->
-<!--	window.onload = function() {-->
-<!--		baseliner = new Baseliner({ gridHeight: 16, gridColor: "red" });-->
-<!--		baseliner.toggle();-->
-<!--	}-->
-<!--</script>-->
 <?php get_footer(); ?>
