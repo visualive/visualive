@@ -253,24 +253,26 @@
             var self = this;
 
             if (typeof FB === "undefined") {
-                $script("//connect.facebook.net/" + self.cache.settings.locale + "/sdk.js", function () {
-                    var fb_init = {
-                        version: "v2.6",
-                        status : true,
-                        cookie : true,
-                        xfbml  : true
-                    };
-                    var appID = self.cache.settings.facebookAppID;
-
-                    if ("" !== appID && true === self._isNumber(appID)) {
-                        fb_init.appId = appID;
-                    }
-
-                    self.cache.window.fbAsyncInit = function () {
-                        FB.init(fb_init);
-                    };
-                }, self);
+                $script("//connect.facebook.net/" + self.cache.settings.locale + "/sdk.js", "facebook" );
             }
+
+            $script.ready("facebook", function () {
+                var fb_init = {
+                    version: "v2.6",
+                    status : true,
+                    cookie : true,
+                    xfbml  : true
+                };
+                var appID = self.cache.settings.facebookAppID;
+
+                if ("" !== appID && true === self._isNumber(appID)) {
+                    fb_init.appId = appID;
+                }
+
+                self.cache.window.fbAsyncInit = function () {
+                    FB.init(fb_init);
+                };
+            }, self);
         },
 
         /**
@@ -281,10 +283,12 @@
          */
         _sdkInitTwitter: function () {
             if (typeof twttr === "undefined") {
-                $script("//platform.twitter.com/widgets.js", function () {
-                    twttr.widgets.load();
-                });
+                $script("//platform.twitter.com/widgets.js", "twitter");
             }
+
+            $script.ready("twitter", function () {
+                twttr.widgets.load();
+            });
         },
 
         /**
@@ -299,9 +303,11 @@
             var analytics = self.cache.window.GoogleAnalyticsObject;
 
             if (typeof analytics === "undefined" || "ga" !== analytics) {
-                $script("//www.google-analytics.com/analytics.js", function () {
-                }, self);
+                $script("//www.google-analytics.com/analytics.js", "analytics");
             }
+
+            $script("analytics", function () {
+            }, self);
         }
     };
 
