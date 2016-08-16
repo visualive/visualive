@@ -98,7 +98,7 @@ html.wf-active,
 
 .canopy-nav {
     background-color: rgba(255, 255, 255, .5);
-    height: 80px;
+    height: vertical-rhythm-num() * 2;
     left: 0;
     position: absolute;
     top: 0;
